@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping cart Javascript project</title>
+  <script defer src="main.js"></script>
+</head>
+<style>
+  body {
+    background-color: #FBFBFB;
+  }
+
+  header, .main-container {
+    max-width: 1366px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    font-size: 40px;
+  }
+
+  .filtering li {
+    font-size: 24px;
+    padding: 8px 16px;
+    cursor: pointer;
+    background-color: rgb(224, 224, 224);
+    border-radius: 6px;
+  }
+
+  .filtering li:hover {
+    background-color: rgb(193, 193, 193);
+  }
+
+  .filtering .active {
+    background-color: black;
+    color: white;
+  }
+  .filtering .active:hover {
+    background-color: black;
+  }
+
+  .items-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* This creates 4 equal columns */
+    gap: 16px; /* Optional: adds space between grid items */
+  }
+  .description-container {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  .description-container top {
+    height: 100%;
+  }
+
+  .product-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+
+
+
+
+
+
+  .dropdown-container {
+    position: absolute;
+    top: 28px;
+    right: 0px;
+    padding: 16px;
+    padding-bottom: 0px;
+    background-color: white;
+    border-radius: 6px;
+    border: 1px solid grey;
+    width: 320px;
+    max-height: 30vh;
+    overflow-y: auto;
+    display: none;
+  }
+
+  .show {
+    display: block;
+  }
+
+  .dropdown-container li {
+    list-style-type: none;
+    margin-bottom: 8px;
+    border-bottom: 1px solid rgb(214, 214, 214);
+    padding-bottom: 8px;
+  }
+
+  .dropdown-item {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+  }
+
+  .item-img {
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
+    border-radius: 6px;
+  }
+
+  .remove-btn img {
+    width: 8px;
+    height: 8px;
+    border-radius: 6px;
+  }
+
+
+  button {
+    padding: 8px 16px;
+    background-color: rgb(52, 52, 52);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  button:hover {
+    background-color: black;
+  }
+
+  .remove-btn {
+    background-color: rgb(221, 221, 221);
+    color: red;
+    border: 1px solid red;
+    width: 16px;
+    height: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .remove-btn:hover {
+    background-color: rgb(194, 194, 194);
+    color: rgb(194, 2, 2);
+    border: 1px solid rgb(194, 2, 2);
+  }
+
+
+
+</style>
+<body>
+  <header style="display: flex; align-items: center; justify-content: space-between;">
+    <h1>Shopping cart Javascript project</h1>
+    <div style="position: relative;">
+      <button id="cartButton" style="position: relative;">Cart is empty</button>
+      <div class="dropdown-container">
+        <div id="cart-dropdown" style="overflow: auto;">
+
+        </div>
+        <div style="position: sticky; bottom: 0px; background-color: white; height: auto; padding: 8px 0; border-top: 1px solid black;">
+          <button onclick="toggleDropdown()">Checkout</button>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="main-container">
+    <div class="top" style="display: flex; align-items: center; justify-content: space-between;">
+      <ul class="filtering" style="display: flex; gap: 8px; list-style-type: none; padding: 0;">
+        <li class="active">All</li>
+        <li>Computers</li>
+        <li>Phones</li>
+        <li>TVs</li>
+      </ul>
+      <div class="sort-by-container">
+        Sort by:
+      </div>
+    </div>
+    <div class="items-container">
+    </div>
+  </div>
+</body>
+</html>
+
+
